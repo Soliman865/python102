@@ -1,40 +1,58 @@
-# Week 5 – Mini Project 1: Personal Data App (without AI)
+# Week 5 — Mini Project: Game High Score Tracker
 
-## Objective
-Consolidate Weeks 1-4 (Python/VS Code, Git/GitHub, Lists & Dictionaries,
-File I/O) into one working CLI app before AI is introduced in Week 6.
-No new syntax this week — the goal is fluency and confidence combining
-what they already know.
+## 🎯 What You're Building
 
-## Class flow (60-75 min)
+A command-line app that lets you track high scores for your favourite games.
 
-| Time | Activity |
-|------|----------|
-| 0-10 min | Recap: what's a list of dicts, why do we save to a file? Draw the Contact Book's data flow on the whiteboard (load → menu loop → save). |
-| 10-40 min | Live-code `lesson.py` together (Contact Book). Type it out, don't paste — run it after every function so they see incremental progress. |
-| 40-45 min | `git add / commit / push` the working Contact Book to their own repo (reinforces Week 2). |
-| 45-70 min | Hand out `exercise.py` (Habit Tracker). Students work independently/pairs. Circulate. |
-| 70-75 min | Wrap up: 1-2 students demo their tracker. Assign finishing the exercise for next class if incomplete. |
+**It must use everything from weeks 2–4:**
+- ✅ OOP — a `Player` class that stores name and scores
+- ✅ Error handling — catch bad input, handle missing players
+- ✅ `json` module — save scores to a file so they survive when you close the app
+- ✅ `datetime` module — record *when* a score was added
 
-## Key concepts reinforced
-- List of dictionaries as a simple "database"
-- `json.dump` / `json.load` for persistence
-- Menu-driven `while True` loop with `input()`
-- Defensive input handling (`try/except` on `int()` and index access)
-- Functions that take `contacts`/`habits` as a parameter and mutate it in place
+---
 
-## Common student errors to watch for
-- Forgetting to call `save_*()` after add/delete → changes don't persist
-- Off-by-one on `choice - 1` when converting menu number to list index
-- Not guarding against an empty list before indexing (`contacts[0]` on `[]`)
-- Leaving `habits.json` from a previous run in the folder and being confused why old data reappears — good moment to explain persistence is a feature, not a bug
+## 🗂️ How the App Works
 
-## Files
-- `lesson.py` — Contact Book, built together in class
-- `exercise.py` — Habit Tracker starter with 7 TODOs, same pattern as lesson.py
-- `solution.py` — reference solution to exercise.py
+```
+=== High Score Tracker ===
+1. View all players
+2. Add a player
+3. Add a score for a player
+4. View a player's scores
+5. Show the top scorer
+6. Quit
+```
 
-## Note for next week
-Week 6 introduces AI concepts. Make sure every student leaves this class
-with a working save/load loop — Week 9's Mini Project 2 builds an
-API + GUI app directly on this pattern.
+- All data is saved to `scores.json` automatically after every change
+- On startup, scores are loaded from `scores.json` if it exists
+- If a player name doesn't exist, the app prints a helpful message instead of crashing
+
+---
+
+## ✅ Requirements Checklist
+
+Before you're done, you should be able to say yes to all of these:
+
+- [ ] The `Player` class has `name` and `scores` attributes
+- [ ] `Player.add_score(value)` raises a `ValueError` if the score is not a positive number
+- [ ] The menu works in a loop until the user picks Quit
+- [ ] All scores are saved to `scores.json` — they're still there when you restart the app
+- [ ] Each score entry records the value **and** the date/time it was added
+- [ ] Bad input (letters where a number is expected) doesn't crash the app
+
+---
+
+## 📁 Files This Week
+
+- `starter.py` — skeleton with TODOs — **start here**
+- `solution.py` — reference solution — **try the starter first!**
+
+---
+
+## 💡 Hints
+
+- Use a **dict** to store all players: `{"Alex": <Player object>, "Jordan": <Player object>}`
+- To save: convert each Player to a plain dict (`{"name": ..., "scores": [...]}`) before `json.dump()`
+- To load: read the JSON file, create Player objects from the saved dicts
+- For the date: `datetime.datetime.now().strftime("%Y-%m-%d %H:%M")`

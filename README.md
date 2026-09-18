@@ -2,46 +2,75 @@
 
 **Math+Coding Academy** | mathcoding.ca
 
-This is the course repository for Python102. Each week has its own folder with lesson files, exercises, and starter code.
+This is the course repository for Python102. Students build three real AI-powered projects
+over the term, using AI coding tools (Cursor / GitHub Copilot) to write code — and
+developing the skills to read, verify, and fix what the AI produces.
+
+---
 
 ## Prerequisites
 
-Completion of Python101: variables, input/output, conditionals, loops, functions, basic debugging.
+Completion of Python101: variables, input/output, conditionals, loops, functions,
+lists, dictionaries, file I/O, basic debugging.
+
+Python 3.10+, VS Code, and Git should already be installed from Python101.
+
+---
 
 ## Course Outline
 
-| Week | Topic |
-|------|-------|
-| Week 1 | Python and VS Code |
-| Week 2 | Git and GitHub |
-| Week 3 | Lists and Dictionaries |
-| Week 4 | File I/O and Data Persistence |
-| Week 5 | Mini Project 1 – Personal Data App (no AI) |
-| Week 6 | Introduction to AI |
-| Week 7 | Working with APIs |
-| Week 8 | Building a GUI with Tkinter |
-| Week 9 | Mini Project 2 – API + GUI App (with AI) |
-| Week 10 | Data and Visualization |
-| Week 11 | Debugging AI Code |
-| Week 12 | Final Project + Showcase |
+| Week(s) | Folder | Topic | Format |
+|---------|--------|-------|--------|
+| 1 | `week1/` | Python recap + OOP intro: classes, objects, `__init__`, `self` | 30 min deck + 30 min practice |
+| 2 | `week2/` | OOP in practice: methods, `__str__`, class attributes, container classes | Concept + lesson + exercise |
+| 3 | `week3/` | Error handling: `try/except`, `raise`, custom exceptions | Concept + lesson + exercise |
+| 4 | `week4/` | Modules & standard library: `math`, `random`, `datetime`, `os`, `json` | Concept + lesson + exercise |
+| 5 | `week5/` | Mini Project (no AI): High Score Tracker CLI app | README + starter + solution |
+| 6 | `week6/` | Introduction to AI + using Copilot/Cursor in VS Code | 30 min deck + 30 min hands-on |
+| 7–8 | `week7-8/` | **Project: AI Weather Mood App** — live weather API + Tkinter GUI | Project guide + reference files |
+| 9–10 | `week9-10/` | **Project: AI Trash Sorter** — train your own model + webcam classifier | Project guide + reference file |
+| 11 | `week11/` | Debugging AI code — finding silent bugs, intro to `unittest` | Concept + lesson + exercise |
+| 12 | `week12/` | **Final Project Showcase** — build something of your own choosing with AI | Project guide |
+
+---
 
 ## How to Use This Repo
 
-Each week's folder contains:
-- `lesson.py` — code we write together in class, with explanations in the comments
-- `exercise.py` — your hands-on practice for the week
-- `solution.py` — reference solution (try the exercise first!)
+Different weeks use different file formats depending on what that week needs:
+
+| File | Where you'll find it | What it's for |
+|------|---------------------|---------------|
+| `deck.md` | `week1/`, `week6/` | Gamma-friendly slide deck for the theory portion of class. Paste into [gamma.app](https://gamma.app) to auto-generate slides. |
+| `README.md` | Every week | Concept explanation, instructions, and checkpoints for that week |
+| `lesson.py` | Weeks 2–4 | Code written together in class — read the comments as you go |
+| `exercise.py` | Weeks 2–4 | Your hands-on practice — try it before looking at anything else |
+| `hands_on.py` | `week6/` | In-class Copilot/Cursor activities |
+| `starter.py` | `week5/` | Project skeleton with TODOs — start here |
+| `solution.py` | `week5/` | Reference solution — try the starter first! |
+| `weather.py`, `app.py` | `week7-8/` | Reference implementations — build your own with AI first |
+| `sorter.py` | `week9-10/` | Reference implementation — build your own with AI first |
+
+---
+
+## The Project Weeks (7–8, 9–10, 11–12)
+
+These weeks follow an **incremental AI build** approach:
+- You build the project in 4 small steps, not one big prompt
+- Each step has a short, specific prompt to give the AI
+- Each step has a **"Common AI mistake"** section telling you what the AI typically gets wrong there — and how to catch and fix it
+- You verify each step works before moving to the next
+
+The goal is not just a working app — it's developing the habit of **reading, testing, and owning** every line of AI-generated code.
+
+---
 
 ## Setup
 
-1. Install Python 3.10+: https://www.python.org/downloads/
-2. Install VS Code: https://code.visualstudio.com/
-3. Clone this repo:
-   ```
-   git clone https://github.com/mathandcodingacademy/python102.git
-   ```
-4. Open the folder in VS Code:
-   ```
-   cd python102
-   code .
-   ```
+```bash
+# Clone this repo (if you haven't already)
+git clone https://github.com/mathandcodingacademy/python102.git
+cd python102
+code .
+```
+
+Install dependencies as needed each week — each project's `README.md` lists what's required.

@@ -1,29 +1,83 @@
-# Week 2 — Git and GitHub
+# Week 2 — OOP in Practice
 
-This week you stop saving code only on your own laptop. You learn the workflow real developers use to back up, track, and share their code: **Git** and **GitHub**.
+## 🔁 Quick Recap
 
-By the end of this week, every project you build in this course will go through GitHub — starting now.
+You did Python101 a while ago, so here's a quick refresher before the new stuff.
 
-## Files in this folder
+### Variables & Types
+```python
+name = "Alex"       # str
+age = 12            # int
+height = 1.6        # float
+is_student = True   # bool
+```
 
-| File | What it covers |
-|---|---|
-| `01_what_is_git.md` | What version control is, and why Git/GitHub exist |
-| `02_setup_and_clone.md` | Setting your Git identity, creating a repo, cloning it to your laptop |
-| `03_workflow.md` | The `add → commit → push` cycle — the one thing you'll do every single class from now on |
-| `04_exercises.md` | Tasks to do on your own, pushed to your own GitHub repo |
+### Functions
+```python
+def greet(name):          # define it
+    return f"Hi, {name}!"
 
-## Read these in order
+message = greet("Jordan") # call it
+print(message)
+```
 
-Don't skip ahead to `04_exercises.md`. The workflow in `03_workflow.md` only makes sense once you've done the setup in `02_setup_and_clone.md`.
+### Conditionals
+```python
+score = 85
+if score >= 90:
+    print("A")
+elif score >= 70:
+    print("B")
+else:
+    print("C")
+```
 
-## What you need before starting
+> If any of these feel rusty, ask your instructor before moving on.
 
-- Git installed on your computer — check by opening the VS Code terminal and typing `git --version`. If you get an error instead of a version number, install Git from [git-scm.com](https://git-scm.com) and restart VS Code.
-- A GitHub account you can log into (you already made one in Python101).
+---
 
-## The one rule to remember
+## 📚 New Concept: Building Real Classes
 
-> Make a change → `git add` it → `git commit` it → `git push` it.
+Last week you saw the *shape* of a class. This week you build one that actually does something useful.
 
-That's the entire workflow. Everything else this week is just learning what those four words actually do.
+Three things to get solid this week:
+
+### 1. Attributes — the object's data
+```python
+self.name = name
+self.health = 100
+```
+Each object gets its own copy of these values. `max.health` and `luna.health` are separate.
+
+### 2. Methods — the object's actions
+```python
+def take_damage(self, amount):
+    self.health -= amount
+```
+Methods can **read and change** the object's attributes using `self`.
+
+### 3. Object interaction — objects can work with each other
+```python
+hero.attack(enemy)   # hero calls a method that affects enemy
+```
+Objects can be passed into methods just like any other value.
+
+---
+
+## 🔑 Key Terms
+
+| Term | Meaning |
+|------|---------|
+| `class` | Blueprint for creating objects |
+| `__init__` | Runs automatically when you create an object — sets up its attributes |
+| `self` | The specific object calling the method right now |
+| **attribute** | A variable that belongs to an object (`self.name`) |
+| **method** | A function that belongs to a class (`def attack(self)`) |
+| **instance** | One specific object created from a class (`hero = GameCharacter(...)`) |
+
+---
+
+## 📁 Files This Week
+
+- `lesson.py` — build a `GameCharacter` class step by step, then make two characters fight
+- `exercise.py` — build a `Superhero` class from scratch using the same ideas

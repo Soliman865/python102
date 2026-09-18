@@ -1,33 +1,107 @@
-# Week 3 — Lists and Dictionaries
+# Week 3 — Error Handling
 
-Until now, every variable has held one thing — one number, one string, one name. This week you learn two data structures that hold many things at once: **lists** (ordered collections) and **dictionaries** (lookup by name instead of position).
+## 🔁 Quick Recap
 
-By the end of this week, you'll store real collections of data properly instead of typing values in one at a time — the same way grades, inventories, and contact lists are stored in actual software.
+### for loops
+```python
+fruits = ["apple", "banana", "mango"]
+for fruit in fruits:
+    print(fruit)
 
-## Files in this folder
+for i in range(5):   # 0, 1, 2, 3, 4
+    print(i)
+```
 
-| File | What it covers |
-|---|---|
-| `01_lists_and_dicts.py` | Lists, iterating over lists, dictionaries, iterating over dictionaries, and lists of dictionaries |
-| `02_exercises.py` | Tasks to do on your own — grocery list, contact book, grade book, bonus word frequency |
+### while loops
+```python
+count = 0
+while count < 3:
+    print(count)
+    count += 1
+```
 
-## Read these in order
+### Lists
+```python
+scores = [90, 85, 78]
+scores.append(95)      # add to end
+scores.remove(85)      # remove a value
+print(scores[0])       # access by index
+print(len(scores))     # how many items
+```
 
-`01_lists_and_dicts.py` has 5 programs, each building on the last. Run each one before moving to the next, and try the `CHALLENGE` at the end of each program — they set up ideas you'll need in `02_exercises.py`.
+### Dictionaries
+```python
+student = {"name": "Alex", "grade": 7}
+student["score"] = 98         # add a key
+print(student["name"])        # read a value
+print("score" in student)     # check if key exists → True
+```
 
-## What you need before starting
+> If any of these feel rusty, ask your instructor.
 
-- Comfortable with: variables, functions, `for` loops, `if`/`elif`/`else` (Python101 + Weeks 1–2)
-- Your Week 2 GitHub repo, ready to `add`, `commit`, and `push` your work this week too
+---
 
-## The two structures, in one line each
+## 📚 New Concept: Error Handling
 
-> **List** — `["Amelia", "Noah", "Priya"]` — ordered, found by index (`names[0]`).
-> **Dictionary** — `{"name": "Amelia", "grade": 88}` — unordered, found by key (`student["name"]`).
+Right now, if a user types something unexpected, your program **crashes**. Error handling lets your program **deal with problems gracefully** instead of stopping.
 
-If you need to ask "what's the 3rd thing?" — use a list.
-If you need to ask "what's this thing's grade?" — use a dictionary.
+### What is an Exception?
 
-## Looking ahead
+When Python hits a problem it can't continue from, it raises an **exception** — an error with a type and a message.
 
-Next week (File I/O and Data Persistence) you'll learn to save a list of dictionaries — like `class_records` from `01_lists_and_dicts.py` — to a file, so your data doesn't disappear every time you close VS Code. Everything you build this week is what gets saved next week.
+Common exceptions you'll see:
+
+| Exception | When it happens |
+|-----------|-----------------|
+| `ValueError` | Wrong type of value (e.g. `int("hello")`) |
+| `IndexError` | List index out of range (`mylist[99]` when list has 3 items) |
+| `KeyError` | Dictionary key doesn't exist (`d["missing_key"]`) |
+| `ZeroDivisionError` | Dividing by zero |
+| `FileNotFoundError` | Trying to open a file that doesn't exist |
+
+### try / except
+
+Wrap risky code in a `try` block. If it fails, the `except` block runs instead of crashing.
+
+```python
+try:
+    number = int(input("Enter a number: "))
+    print(10 / number)
+except ValueError:
+    print("That's not a number!")
+except ZeroDivisionError:
+    print("Can't divide by zero!")
+```
+
+### Raising your own exceptions
+
+Your own classes can raise exceptions too — this is how you say "this is not allowed":
+
+```python
+def set_health(self, value):
+    if value < 0:
+        raise ValueError("Health cannot be negative.")
+    self.health = value
+```
+
+The caller then decides whether to handle it or let it crash.
+
+---
+
+## 🔑 Key Terms
+
+| Term | Meaning |
+|------|---------|
+| **exception** | An error that interrupts normal code execution |
+| `try` | Block of code that might raise an exception |
+| `except` | Block that runs *only if* the `try` block raises an exception |
+| `raise` | Manually trigger an exception from your own code |
+| `ValueError` | Exception for "wrong kind of value" |
+| `IndexError` | Exception for "list index out of range" |
+
+---
+
+## 📁 Files This Week
+
+- `lesson.py` — see what crashes look like, then fix them with `try/except`; add error handling to a class
+- `exercise.py` — add error handling to your `Superhero` class from week 2, plus standalone challenges

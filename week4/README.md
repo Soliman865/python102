@@ -1,36 +1,114 @@
-# Week 4 — File I/O and Data Persistence
+# Week 4 — Modules & the Standard Library
 
-Every program you've written so far forgets everything the moment it ends. This week fixes that: you'll learn to read data from a file and write data to a file, so `grocery_list`, `contacts`, and `class_records` survive after you close VS Code.
+## 🔁 Quick Recap: File I/O
 
-By the end of this week, your programs will save real data to disk — as plain text, as JSON, and as CSV — the same three formats real software uses to persist data.
+Reading from a file:
+```python
+with open("scores.txt", "r") as f:
+    content = f.read()
+    print(content)
+```
 
-## Files in this folder
+Writing to a file:
+```python
+with open("scores.txt", "w") as f:
+    f.write("Alex: 95\n")
+    f.write("Jordan: 88\n")
+```
 
-| File | What it covers |
-|---|---|
-| `01_file_io.py` | Writing and reading text files, append vs. overwrite, saving/loading with JSON, reading/writing CSV files |
-| `02_exercises.py` | Tasks to do on your own — grocery list, contact book, and grade book, now saved permanently, plus a bonus CSV attendance report |
+Appending (without erasing):
+```python
+with open("scores.txt", "a") as f:
+    f.write("Riley: 91\n")
+```
 
-## Read these in order
+> `"r"` = read, `"w"` = write (overwrites), `"a"` = append
 
-`01_file_io.py` has 5 programs, each building on the last. Run each one, then actually open the `.txt`, `.json`, and `.csv` files it creates in VS Code's file explorer — seeing the real file on disk is the point of this week, not just the printed output. Try the `CHALLENGE` at the end of each program before moving to `02_exercises.py`.
+---
 
-## What you need before starting
+## 📚 New Concept: Modules & the Standard Library
 
-- Comfortable with: functions, `for` loops, lists, dictionaries, and lists of dictionaries (Weeks 1–3)
-- Your Week 3 grocery list, contact book, and grade book exercises — you'll be upgrading all three this week
-- Your GitHub repo, ready to `add`, `commit`, and `push` your work this week too
+A **module** is a file full of ready-made functions and tools. Python comes with hundreds of them — you just `import` the ones you need.
 
-## The formats, in one line each
+### Importing a module
+```python
+import math
+import random
+import datetime
+import os
+import json
+```
 
-> **Plain text (`.txt`)** — just lines of text, good for simple lists like a grocery list.
-> **JSON (`.json`)** — maps directly onto Python lists/dicts, best for structured data like `class_records`.
-> **CSV (`.csv`)** — rows and columns, best for spreadsheet-style data like attendance.
+### The modules you'll use most this year
 
-If your data is a list of dictionaries — use JSON.
-If your data looks like a spreadsheet — use CSV.
-If it's just lines of text — plain `.txt` is enough.
+#### `math` — maths functions
+```python
+import math
+print(math.sqrt(25))    # 5.0 — square root
+print(math.floor(3.9))  # 3   — round down
+print(math.ceil(3.1))   # 4   — round up
+print(math.pi)          # 3.14159...
+```
 
-## Looking ahead
+#### `random` — randomness
+```python
+import random
+print(random.randint(1, 6))         # random int between 1 and 6 (like a dice)
+print(random.choice(["red", "blue", "green"]))  # random item from a list
+random.shuffle(my_list)             # shuffle a list in place
+```
 
-Next week is Mini Project 1 — a Personal Data App. You'll build one complete program that reads its data from a file on startup and saves it back on exit, so it behaves like real software instead of a script that forgets everything every time it runs. Everything you practice this week — `load_*()` on startup, `save_*()` before quitting — is the exact pattern that project is built on.
+#### `datetime` — dates and times
+```python
+import datetime
+now = datetime.datetime.now()
+print(now)                          # 2026-09-18 12:00:00.123456
+print(now.strftime("%Y-%m-%d"))     # "2026-09-18"
+print(now.strftime("%H:%M"))        # "12:00"
+```
+
+#### `json` — save and load Python data as text
+```python
+import json
+
+data = {"name": "Alex", "score": 95}
+
+# Save to file:
+with open("data.json", "w") as f:
+    json.dump(data, f)
+
+# Load from file:
+with open("data.json", "r") as f:
+    loaded = json.load(f)
+print(loaded["name"])   # Alex
+```
+
+> JSON is how most web APIs and save files store data. You'll use it a lot in the project weeks.
+
+#### `os` — talk to the operating system
+```python
+import os
+print(os.getcwd())          # current folder path
+print(os.path.exists("data.json"))  # True/False — does the file exist?
+os.makedirs("saves", exist_ok=True) # create a folder (no crash if it already exists)
+```
+
+---
+
+## 🔑 Key Terms
+
+| Term | Meaning |
+|------|---------|
+| **module** | A file of reusable Python code you can import |
+| **standard library** | The collection of modules that come built into Python |
+| `import` | Load a module so you can use its tools |
+| **JSON** | A text format for storing data (like a Python dict, saved to a file) |
+| `json.dump()` | Write Python data to a JSON file |
+| `json.load()` | Read a JSON file back into Python |
+
+---
+
+## 📁 Files This Week
+
+- `lesson.py` — tour of `math`, `random`, `datetime`, `os`, and `json` with real examples
+- `exercise.py` — use these modules to build small programs

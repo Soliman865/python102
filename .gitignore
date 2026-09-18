@@ -209,6 +209,15 @@ tempCodeRunnerFile.py
 # PyPI configuration file
 .pypirc
 
+# Trained model files (can be very large — don't push to GitHub)
+keras_Model.h5
+*.h5
+
+# Generated data files from exercises
+scores.json
+highscore.json
+challenge.json
+
 # Marimo
 marimo/_static/
 marimo/_lsp/

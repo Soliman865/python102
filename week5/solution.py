@@ -1,100 +1,141 @@
-"""
-Week 5 - Solution: Habit Tracker
-Python102 | Math+Coding Academy
-
-Reference solution. Try the exercise yourself first!
-"""
+# Week 5 — Solution: Game High Score Tracker
+# Reference solution — try starter.py first!
 
 import json
+import datetime
 import os
 
-HABITS_FILE = "habits.json"
+SAVE_FILE = "scores.json"
 
 
-def load_habits():
-    if not os.path.exists(HABITS_FILE):
-        return []
+class Player:
+    def __init__(self, name):
+        self.name = name
+        self.scores = []   # list of {"value": int, "date": str}
 
-    with open(HABITS_FILE, "r") as f:
-        return json.load(f)
+    def add_score(self, value):
+        if value <= 0:
+            raise ValueError(f"Score must be a positive number, got {value}.")
+        entry = {
+            "value": value,
+            "date": datetime.datetime.now().strftime("%Y-%m-%d %H:%M")
+        }
+        self.scores.append(entry)
+        print(f"{self.name} scored {value}!")
+
+    def best_score(self):
+        if not self.scores:
+            return 0
+        return max(entry["value"] for entry in self.scores)
+
+    def show_scores(self):
+        if not self.scores:
+            print(f"{self.name} has no scores yet.")
+            return
+        print(f"\n--- {self.name}'s Scores ---")
+        for entry in self.scores:
+            print(f"  {entry['value']} — {entry['date']}")
+
+    def to_dict(self):
+        return {"name": self.name, "scores": self.scores}
+
+    @staticmethod
+    def from_dict(data):
+        player = Player(data["name"])
+        player.scores = data["scores"]
+        return player
 
 
-def save_habits(habits):
-    with open(HABITS_FILE, "w") as f:
-        json.dump(habits, f, indent=2)
+def save_all(players):
+    data = [p.to_dict() for p in players.values()]
+    with open(SAVE_FILE, "w") as f:
+        json.dump(data, f, indent=2)
+    print("Saved.")
+
+def load_all():
+    if not os.path.exists(SAVE_FILE):
+        return {}
+    with open(SAVE_FILE, "r") as f:
+        data = json.load(f)
+    return {entry["name"]: Player.from_dict(entry) for entry in data}
 
 
-def add_habit(habits):
-    name = input("Habit name: ")
-    habits.append({"name": name, "times_done": 0})
-    save_habits(habits)
-    print(f"Added habit: {name}")
-
-
-def view_habits(habits):
-    if not habits:
-        print("No habits saved yet.")
+def view_all_players(players):
+    if not players:
+        print("No players yet.")
         return
+    print("\n--- All Players ---")
+    for name, player in players.items():
+        print(f"  {name} | Best score: {player.best_score()}")
 
-    for i, habit in enumerate(habits, start=1):
-        print(f"{i}. {habit['name']} - done {habit['times_done']} times")
-
-
-def mark_done(habits):
-    view_habits(habits)
-    if not habits:
+def add_player(players):
+    name = input("Enter player name: ").strip()
+    if not name:
+        print("Name cannot be empty.")
         return
+    if name in players:
+        print(f"{name} already exists.")
+        return
+    players[name] = Player(name)
+    print(f"Player '{name}' added.")
 
+def add_score_for_player(players):
+    name = input("Player name: ").strip()
+    if name not in players:
+        print(f"No player named '{name}'.")
+        return
     try:
-        choice = int(input("Which habit did you complete? "))
-        habits[choice - 1]["times_done"] += 1
-        save_habits(habits)
-        print(f"Nice work! {habits[choice - 1]['name']} updated.")
-    except (ValueError, IndexError):
-        print("That's not a valid habit number.")
+        value = int(input("Score: "))
+        players[name].add_score(value)
+    except ValueError as e:
+        print(f"Error: {e}")
 
-
-def delete_habit(habits):
-    view_habits(habits)
-    if not habits:
+def view_player_scores(players):
+    name = input("Player name: ").strip()
+    if name not in players:
+        print(f"No player named '{name}'.")
         return
+    players[name].show_scores()
 
-    try:
-        choice = int(input("Which habit do you want to delete? "))
-        removed = habits.pop(choice - 1)
-        save_habits(habits)
-        print(f"Deleted {removed['name']}.")
-    except (ValueError, IndexError):
-        print("That's not a valid habit number.")
+def show_top_scorer(players):
+    if not players:
+        print("No players yet.")
+        return
+    top = max(players.values(), key=lambda p: p.best_score())
+    print(f"\nTop scorer: {top.name} with {top.best_score()} points")
 
 
 def main():
-    habits = load_habits()
+    players = load_all()
+    print("=== High Score Tracker ===")
 
     while True:
-        print("\n--- Habit Tracker ---")
-        print("1. View habits")
-        print("2. Add habit")
-        print("3. Mark habit done")
-        print("4. Delete habit")
-        print("5. Quit")
+        print("\n1. View all players")
+        print("2. Add a player")
+        print("3. Add a score")
+        print("4. View a player's scores")
+        print("5. Show top scorer")
+        print("6. Quit")
 
-        choice = input("Choose an option (1-5): ")
+        choice = input("\nChoice: ").strip()
 
         if choice == "1":
-            view_habits(habits)
+            view_all_players(players)
         elif choice == "2":
-            add_habit(habits)
+            add_player(players)
+            save_all(players)
         elif choice == "3":
-            mark_done(habits)
+            add_score_for_player(players)
+            save_all(players)
         elif choice == "4":
-            delete_habit(habits)
+            view_player_scores(players)
         elif choice == "5":
+            show_top_scorer(players)
+        elif choice == "6":
             print("Goodbye!")
             break
         else:
-            print("Please enter a number from 1 to 5.")
-
+            print("Invalid choice. Enter 1–6.")
 
 if __name__ == "__main__":
     main()
