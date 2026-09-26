@@ -22,10 +22,10 @@ Python 3.10+, VS Code, and Git should already be installed from Python101.
 | Week(s) | Folder | Topic | Format |
 |---------|--------|-------|--------|
 | 1 | `week1/` | Python recap + OOP intro: classes, objects, `__init__`, `self` | 30 min deck + 30 min practice |
-| 2 | `week2/` | OOP in practice: methods, `__str__`, class attributes, container classes | Concept + lesson + exercise |
-| 3 | `week3/` | Error handling: `try/except`, `raise`, custom exceptions | Concept + lesson + exercise |
-| 4 | `week4/` | Modules & standard library: `math`, `random`, `datetime`, `os`, `json` | Concept + lesson + exercise |
-| 5 | `week5/` | Mini Project (no AI): High Score Tracker CLI app | README + starter + solution |
+| 2 | `week2/` | OOP in practice: methods, objects working together, `__str__`, class attributes, a class that holds a list | 4 short lesson + your-turn pairs |
+| 3 | `week3/` | Error handling: `try/except`, `raise`, your own error type | 4 short lesson + your-turn pairs |
+| 4 | `week4/` | Modules: `math`, `random`, `datetime`, `json`, `os` | 4 short lesson + your-turn pairs |
+| 5 | `week5/` | Mini project (no AI): High Score Tracker | 5 short pairs, then run `05_app.py` |
 | 6 | `week6/` | Introduction to AI + using Copilot/Cursor in VS Code | 30 min deck + 30 min hands-on |
 | 7–8 | `week7-8/` | **Project: AI Weather Mood App** — live weather API + Tkinter GUI | Project guide + reference files |
 | 9–10 | `week9-10/` | **Project: AI Trash Sorter** — train your own model + webcam classifier | Project guide + reference file |
@@ -42,11 +42,9 @@ Different weeks use different file formats depending on what that week needs:
 |------|---------------------|---------------|
 | `deck.md` | `week1/`, `week6/` | Gamma-friendly slide deck for the theory portion of class. Paste into [gamma.app](https://gamma.app) to auto-generate slides. |
 | `README.md` | Every week | Concept explanation, instructions, and checkpoints for that week |
-| `lesson.py` | Weeks 2–4 | Code written together in class — read the comments as you go |
-| `exercise.py` | Weeks 2–4 | Your hands-on practice — try it before looking at anything else |
+| `01_lesson.py`, `01_your_turn.py`, ... | `week2/` through `week5/` | Short activities in order. Start at that week's `README.md`. Done when the file prints `PASSED`. |
+| `05_app.py` | `week5/` | The finished High Score Tracker. Run it after the week's activities pass. |
 | `hands_on.py` | `week6/` | In-class Copilot/Cursor activities |
-| `starter.py` | `week5/` | Project skeleton with TODOs — start here |
-| `solution.py` | `week5/` | Reference solution — try the starter first! |
 | `weather.py`, `app.py` | `week7-8/` | Reference implementations — build your own with AI first |
 | `sorter.py` | `week9-10/` | Reference implementation — build your own with AI first |
 

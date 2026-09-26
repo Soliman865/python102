@@ -215,8 +215,12 @@ keras_Model.h5
 
 # Generated data files from exercises
 scores.json
+scores_check.json
 highscore.json
 challenge.json
+week4_demo.json
+week4_player_check.json
+saved_score.txt
 
 # Marimo
 marimo/_static/

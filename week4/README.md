@@ -1,114 +1,39 @@
-# Week 4 — Modules & the Standard Library
+# Week 4 — Do these in order
 
-## 🔁 Quick Recap: File I/O
+Open this file first. Do the activities from 1 to 4. Do not skip ahead.
 
-Reading from a file:
-```python
-with open("scores.txt", "r") as f:
-    content = f.read()
-    print(content)
-```
+Each activity has two files:
 
-Writing to a file:
-```python
-with open("scores.txt", "w") as f:
-    f.write("Alex: 95\n")
-    f.write("Jordan: 88\n")
-```
+1. **Lesson** — run it and read it. Do not edit it.
+2. **Your turn** — write a few lines, then run it.
 
-Appending (without erasing):
-```python
-with open("scores.txt", "a") as f:
-    f.write("Riley: 91\n")
-```
+You are finished with an activity when your-turn file prints `PASSED`.
 
-> `"r"` = read, `"w"` = write (overwrites), `"a"` = append
+A module is a file of ready-made tools. `import` loads one so you can use it.
 
----
+| Order | Run this first | Then do this | You will learn |
+|-------|----------------|--------------|----------------|
+| 1 | `01_lesson.py` | `01_your_turn.py` | `math` gives you square root and pi |
+| 2 | `02_lesson.py` | `02_your_turn.py` | `random` picks a number or a list item |
+| 3 | `03_lesson.py` | `03_your_turn.py` | `datetime` turns a date into text |
+| 4 | `04_lesson.py` | `04_your_turn.py` | `json` saves a dict to a file and loads it back |
 
-## 📚 New Concept: Modules & the Standard Library
+You are done for today when activities 1 to 4 each print `PASSED`.
 
-A **module** is a file full of ready-made functions and tools. Python comes with hundreds of them — you just `import` the ones you need.
+If you finish early, do activity 5:
 
-### Importing a module
-```python
-import math
-import random
-import datetime
-import os
-import json
-```
+| Order | Run this first | Then do this | You will learn |
+|-------|----------------|--------------|----------------|
+| 5 (extra) | `05_lesson.py` | `05_your_turn.py` | `os.path.exists` checks that a file is there before you open it |
 
-### The modules you'll use most this year
+## How to run a file
 
-#### `math` — maths functions
-```python
-import math
-print(math.sqrt(25))    # 5.0 — square root
-print(math.floor(3.9))  # 3   — round down
-print(math.ceil(3.1))   # 4   — round up
-print(math.pi)          # 3.14159...
-```
+1. Click the file in the left sidebar.
+2. Click the Run button (play icon), or right-click the file and choose **Run Python File**.
+3. Read the text in the terminal.
 
-#### `random` — randomness
-```python
-import random
-print(random.randint(1, 6))         # random int between 1 and 6 (like a dice)
-print(random.choice(["red", "blue", "green"]))  # random item from a list
-random.shuffle(my_list)             # shuffle a list in place
-```
+## If you get stuck
 
-#### `datetime` — dates and times
-```python
-import datetime
-now = datetime.datetime.now()
-print(now)                          # 2026-09-18 12:00:00.123456
-print(now.strftime("%Y-%m-%d"))     # "2026-09-18"
-print(now.strftime("%H:%M"))        # "12:00"
-```
-
-#### `json` — save and load Python data as text
-```python
-import json
-
-data = {"name": "Alex", "score": 95}
-
-# Save to file:
-with open("data.json", "w") as f:
-    json.dump(data, f)
-
-# Load from file:
-with open("data.json", "r") as f:
-    loaded = json.load(f)
-print(loaded["name"])   # Alex
-```
-
-> JSON is how most web APIs and save files store data. You'll use it a lot in the project weeks.
-
-#### `os` — talk to the operating system
-```python
-import os
-print(os.getcwd())          # current folder path
-print(os.path.exists("data.json"))  # True/False — does the file exist?
-os.makedirs("saves", exist_ok=True) # create a folder (no crash if it already exists)
-```
-
----
-
-## 🔑 Key Terms
-
-| Term | Meaning |
-|------|---------|
-| **module** | A file of reusable Python code you can import |
-| **standard library** | The collection of modules that come built into Python |
-| `import` | Load a module so you can use its tools |
-| **JSON** | A text format for storing data (like a Python dict, saved to a file) |
-| `json.dump()` | Write Python data to a JSON file |
-| `json.load()` | Read a JSON file back into Python |
-
----
-
-## 📁 Files This Week
-
-- `lesson.py` — tour of `math`, `random`, `datetime`, `os`, and `json` with real examples
-- `exercise.py` — use these modules to build small programs
+1. Read the `TODO` comment in the file you are editing.
+2. Look at the lesson file with the same number.
+3. Ask your teacher. Do not skip to the next number.

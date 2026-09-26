@@ -1,83 +1,37 @@
-# Week 2 — OOP in Practice
+# Week 2 — Do these in order
 
-## 🔁 Quick Recap
+Open this file first. Do the activities from 1 to 4. Do not skip ahead.
 
-You did Python101 a while ago, so here's a quick refresher before the new stuff.
+Each activity has two files:
 
-### Variables & Types
-```python
-name = "Alex"       # str
-age = 12            # int
-height = 1.6        # float
-is_student = True   # bool
-```
+1. **Lesson** — run it and read it. Do not edit it.
+2. **Your turn** — write a few lines, then run it.
 
-### Functions
-```python
-def greet(name):          # define it
-    return f"Hi, {name}!"
+You are finished with an activity when your-turn file prints `PASSED`.
 
-message = greet("Jordan") # call it
-print(message)
-```
+| Order | Run this first | Then do this | You will learn |
+|-------|----------------|--------------|----------------|
+| 1 | `01_lesson.py` | `01_your_turn.py` | A method can change an object's data |
+| 2 | `02_lesson.py` | `02_your_turn.py` | One object can affect another object |
+| 3 | `03_lesson.py` | `03_your_turn.py` | `print(hero)` can show a sentence you choose |
+| 4 | `04_lesson.py` | `04_your_turn.py` | One counter can be shared by every object |
 
-### Conditionals
-```python
-score = 85
-if score >= 90:
-    print("A")
-elif score >= 70:
-    print("B")
-else:
-    print("C")
-```
+You are done for today when activities 1 to 4 each print `PASSED`.
 
-> If any of these feel rusty, ask your instructor before moving on.
+If you finish early, do activity 5:
 
----
+| Order | Run this first | Then do this | You will learn |
+|-------|----------------|--------------|----------------|
+| 5 (extra) | `05_lesson.py` | `05_your_turn.py` | One object can keep a list of other objects |
 
-## 📚 New Concept: Building Real Classes
+## How to run a file
 
-Last week you saw the *shape* of a class. This week you build one that actually does something useful.
+1. Click the file in the left sidebar.
+2. Click the Run button (play icon), or right-click the file and choose **Run Python File**.
+3. Read the text in the terminal.
 
-Three things to get solid this week:
+## If you get stuck
 
-### 1. Attributes — the object's data
-```python
-self.name = name
-self.health = 100
-```
-Each object gets its own copy of these values. `max.health` and `luna.health` are separate.
-
-### 2. Methods — the object's actions
-```python
-def take_damage(self, amount):
-    self.health -= amount
-```
-Methods can **read and change** the object's attributes using `self`.
-
-### 3. Object interaction — objects can work with each other
-```python
-hero.attack(enemy)   # hero calls a method that affects enemy
-```
-Objects can be passed into methods just like any other value.
-
----
-
-## 🔑 Key Terms
-
-| Term | Meaning |
-|------|---------|
-| `class` | Blueprint for creating objects |
-| `__init__` | Runs automatically when you create an object — sets up its attributes |
-| `self` | The specific object calling the method right now |
-| **attribute** | A variable that belongs to an object (`self.name`) |
-| **method** | A function that belongs to a class (`def attack(self)`) |
-| **instance** | One specific object created from a class (`hero = GameCharacter(...)`) |
-
----
-
-## 📁 Files This Week
-
-- `lesson.py` — build a `GameCharacter` class step by step, then make two characters fight
-- `exercise.py` — build a `Superhero` class from scratch using the same ideas
+1. Read the `TODO` comment in the file you are editing.
+2. Look at the lesson file with the same number.
+3. Ask your teacher. Do not skip to the next number.

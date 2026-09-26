@@ -1,107 +1,37 @@
-# Week 3 — Error Handling
+# Week 3 — Do these in order
 
-## 🔁 Quick Recap
+Open this file first. Do the activities from 1 to 4. Do not skip ahead.
 
-### for loops
-```python
-fruits = ["apple", "banana", "mango"]
-for fruit in fruits:
-    print(fruit)
+Each activity has two files:
 
-for i in range(5):   # 0, 1, 2, 3, 4
-    print(i)
-```
+1. **Lesson** — run it and read it. Do not edit it.
+2. **Your turn** — write a few lines, then run it.
 
-### while loops
-```python
-count = 0
-while count < 3:
-    print(count)
-    count += 1
-```
+You are finished with an activity when your-turn file prints `PASSED`.
 
-### Lists
-```python
-scores = [90, 85, 78]
-scores.append(95)      # add to end
-scores.remove(85)      # remove a value
-print(scores[0])       # access by index
-print(len(scores))     # how many items
-```
+| Order | Run this first | Then do this | You will learn |
+|-------|----------------|--------------|----------------|
+| 1 | `01_lesson.py` | `01_your_turn.py` | `try` / `except` can stop a bad number from crashing the program |
+| 2 | `02_lesson.py` | `02_your_turn.py` | The name after `except` must match the error |
+| 3 | `03_lesson.py` | `03_your_turn.py` | `raise` is how your code reports "this value is not allowed" |
+| 4 | `04_lesson.py` | `04_your_turn.py` | You can make your own error name |
 
-### Dictionaries
-```python
-student = {"name": "Alex", "grade": 7}
-student["score"] = 98         # add a key
-print(student["name"])        # read a value
-print("score" in student)     # check if key exists → True
-```
+You are done for today when activities 1 to 4 each print `PASSED`.
 
-> If any of these feel rusty, ask your instructor.
+If you finish early, do activity 5:
 
----
+| Order | Run this first | Then do this | You will learn |
+|-------|----------------|--------------|----------------|
+| 5 (extra) | `05_lesson.py` | `05_your_turn.py` | A missing file can be handled without a crash |
 
-## 📚 New Concept: Error Handling
+## How to run a file
 
-Right now, if a user types something unexpected, your program **crashes**. Error handling lets your program **deal with problems gracefully** instead of stopping.
+1. Click the file in the left sidebar.
+2. Click the Run button (play icon), or right-click the file and choose **Run Python File**.
+3. Read the text in the terminal.
 
-### What is an Exception?
+## If you get stuck
 
-When Python hits a problem it can't continue from, it raises an **exception** — an error with a type and a message.
-
-Common exceptions you'll see:
-
-| Exception | When it happens |
-|-----------|-----------------|
-| `ValueError` | Wrong type of value (e.g. `int("hello")`) |
-| `IndexError` | List index out of range (`mylist[99]` when list has 3 items) |
-| `KeyError` | Dictionary key doesn't exist (`d["missing_key"]`) |
-| `ZeroDivisionError` | Dividing by zero |
-| `FileNotFoundError` | Trying to open a file that doesn't exist |
-
-### try / except
-
-Wrap risky code in a `try` block. If it fails, the `except` block runs instead of crashing.
-
-```python
-try:
-    number = int(input("Enter a number: "))
-    print(10 / number)
-except ValueError:
-    print("That's not a number!")
-except ZeroDivisionError:
-    print("Can't divide by zero!")
-```
-
-### Raising your own exceptions
-
-Your own classes can raise exceptions too — this is how you say "this is not allowed":
-
-```python
-def set_health(self, value):
-    if value < 0:
-        raise ValueError("Health cannot be negative.")
-    self.health = value
-```
-
-The caller then decides whether to handle it or let it crash.
-
----
-
-## 🔑 Key Terms
-
-| Term | Meaning |
-|------|---------|
-| **exception** | An error that interrupts normal code execution |
-| `try` | Block of code that might raise an exception |
-| `except` | Block that runs *only if* the `try` block raises an exception |
-| `raise` | Manually trigger an exception from your own code |
-| `ValueError` | Exception for "wrong kind of value" |
-| `IndexError` | Exception for "list index out of range" |
-
----
-
-## 📁 Files This Week
-
-- `lesson.py` — see what crashes look like, then fix them with `try/except`; add error handling to a class
-- `exercise.py` — add error handling to your `Superhero` class from week 2, plus standalone challenges
+1. Read the `TODO` comment in the file you are editing.
+2. Look at the lesson file with the same number.
+3. Ask your teacher. Do not skip to the next number.

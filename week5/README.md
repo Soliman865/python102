@@ -1,58 +1,34 @@
-# Week 5 — Mini Project: Game High Score Tracker
+# Week 5 — High Score Tracker
 
-## 🎯 What You're Building
+Open this file first. Do the activities from 1 to 4. Do not skip ahead.
 
-A command-line app that lets you track high scores for your favourite games.
+Today you build a small app, one piece at a time. Each piece is its own file.
 
-**It must use everything from weeks 2–4:**
-- ✅ OOP — a `Player` class that stores name and scores
-- ✅ Error handling — catch bad input, handle missing players
-- ✅ `json` module — save scores to a file so they survive when you close the app
-- ✅ `datetime` module — record *when* a score was added
+1. **Lesson** — run it and read it. Do not edit it.
+2. **Your turn** — write a few lines, then run it.
 
----
+You are finished with an activity when your-turn file prints `PASSED`.
 
-## 🗂️ How the App Works
+| Order | Run this first | Then do this | You will learn |
+|-------|----------------|--------------|----------------|
+| 1 | `01_lesson.py` | `01_your_turn.py` | A player can store scores and report the best one |
+| 2 | `02_lesson.py` | `02_your_turn.py` | A score that is not positive is rejected |
+| 3 | `03_lesson.py` | `03_your_turn.py` | Each score remembers the date it was added |
+| 4 | `04_lesson.py` | `04_your_turn.py` | Players can be saved to a file and loaded back |
+| 5 | `05_lesson.py` | `05_your_turn.py` | You can find the player with the highest score |
 
-```
-=== High Score Tracker ===
-1. View all players
-2. Add a player
-3. Add a score for a player
-4. View a player's scores
-5. Show the top scorer
-6. Quit
-```
+You are done with the code when activities 1 to 5 each print `PASSED`.
 
-- All data is saved to `scores.json` automatically after every change
-- On startup, scores are loaded from `scores.json` if it exists
-- If a player name doesn't exist, the app prints a helpful message instead of crashing
+Then run `05_app.py` and follow the steps at the top of that file. Do not edit `05_app.py`. That file is the finished tracker, built from the pieces you just wrote.
 
----
+## How to run a file
 
-## ✅ Requirements Checklist
+1. Click the file in the left sidebar.
+2. Click the Run button (play icon), or right-click the file and choose **Run Python File**.
+3. Read the text in the terminal.
 
-Before you're done, you should be able to say yes to all of these:
+## If you get stuck
 
-- [ ] The `Player` class has `name` and `scores` attributes
-- [ ] `Player.add_score(value)` raises a `ValueError` if the score is not a positive number
-- [ ] The menu works in a loop until the user picks Quit
-- [ ] All scores are saved to `scores.json` — they're still there when you restart the app
-- [ ] Each score entry records the value **and** the date/time it was added
-- [ ] Bad input (letters where a number is expected) doesn't crash the app
-
----
-
-## 📁 Files This Week
-
-- `starter.py` — skeleton with TODOs — **start here**
-- `solution.py` — reference solution — **try the starter first!**
-
----
-
-## 💡 Hints
-
-- Use a **dict** to store all players: `{"Alex": <Player object>, "Jordan": <Player object>}`
-- To save: convert each Player to a plain dict (`{"name": ..., "scores": [...]}`) before `json.dump()`
-- To load: read the JSON file, create Player objects from the saved dicts
-- For the date: `datetime.datetime.now().strftime("%Y-%m-%d %H:%M")`
+1. Read the `TODO` comment in the file you are editing.
+2. Look at the lesson file with the same number.
+3. Ask your teacher. Do not skip to the next number.
