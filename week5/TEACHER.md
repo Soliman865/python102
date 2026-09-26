@@ -2,6 +2,8 @@
 
 Students start at `README.md`. This file is for you.
 
+Runnable answer keys for every `your_turn` file are in `solutions/`. Each one prints `PASSED` when run.
+
 ## Class plan (about 70 minutes)
 
 Say this, then let them work:

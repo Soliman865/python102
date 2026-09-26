@@ -2,6 +2,8 @@
 
 Students start at `README.md`. This file is for you.
 
+Runnable answer keys for every `your_turn` file are in `solutions/`. Each one prints `PASSED` when run.
+
 ## Why this shape
 
 Same rule as week 2: one idea, one lesson, one your-turn, done when it prints `PASSED`. No blank "write a whole program" block. No `input()` loops, so they can run the file and see the result immediately.

@@ -2,6 +2,8 @@
 
 Students start at `README.md`. This file is for you.
 
+Runnable answer keys for every `your_turn` file are in `solutions/`. Each one prints `PASSED` when run.
+
 ## Why this shape
 
 Week 1 asked students to build a class in a blank `YOUR CODE HERE` block after a long file. They did not know where to start or when they were finished.
