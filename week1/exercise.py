@@ -9,7 +9,7 @@
 # It has a bug. Find it and fix it.
 
 def add_numbers(a, b):
-    result = a - b  # BUG: wrong operator
+    result = a + b  # BUG: wrong operator
     return result
 
 # Test it — should print 10
