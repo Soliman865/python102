@@ -22,7 +22,9 @@ class Hero:
         print(f"{self.name} took {amount} damage. Health is now {self.health}.")
 
     def heal(self, amount):
-        # TODO: add amount to self.health
+        self.health = self.health + amount
+        print(f"{self.name} healed {amount} . Health is now {self.health}.")
+
         # TODO: print the hero's name, the amount, and the new health
         # Example of what to print: Mira healed 20. Health is now 90.
         pass
@@ -30,7 +32,7 @@ class Hero:
 
 mira = Hero("Mira")
 mira.take_damage(30)  # health is now 70
-mira.heal(20)         # health should now be 90
+mira.heal(20)
 
 # CHECK — do not edit below this line
 print("---")
