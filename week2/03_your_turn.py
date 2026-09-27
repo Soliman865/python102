@@ -20,8 +20,7 @@ class Hero:
         self.health = 100
 
     def __str__(self):
-        # TODO: return f"{self.name} | health: {self.health}"
-        return "not done yet"
+        return f"{self.name} | health: {self.health}"
 
 
 nova = Hero("Nova")
@@ -35,3 +34,4 @@ else:
     print("Activity 3: not yet.")
     print("print(nova) should show: Nova | health: 100")
     print("It shows:", nova)
+
