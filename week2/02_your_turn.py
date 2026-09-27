@@ -23,10 +23,15 @@ class Hero:
         self.health = self.health - amount
 
     def attack(self, other):
-        # TODO: other is another Hero.
-        # Call other.take_damage(self.power)
+        other.take_damage(self.power)
+        print(f"{self.name} hits {other.name} for {self.power} damage.")
         # Then print: Mira hits Zed for 25 damage.
-        pass
+        
+
+
+mira = Hero("Mira", 25)
+zed = Hero("Zed", 10)
+mira.attack(zed)
 
 
 mira = Hero("Mira", 25)
