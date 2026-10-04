@@ -14,7 +14,7 @@
 
 def safe_int(text):
     try:
-        # TODO: return int(text)
+        return int(text)
         pass
     except ValueError:
         return None
