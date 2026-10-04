@@ -19,7 +19,7 @@ class Hero:
     def __init__(self, name):
         self.name = name
         # TODO: add 1 to Hero.heroes_made
-        # Look at 04_lesson.py for the exact line.
+        Hero.heroes_made = Hero.heroes_made + 1
 
 
 mira = Hero("Mira")
