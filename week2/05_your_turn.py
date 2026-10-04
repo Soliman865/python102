@@ -26,7 +26,7 @@ class Team:
 
     def add_hero(self, hero):
         # TODO: add hero to the list self.members
-        # Hint: self.members.append(hero)
+        self.members.append(hero)
         pass
 
     def show(self):
