@@ -14,11 +14,11 @@
 import math
 
 def square_root(number):
-    # TODO: return math.sqrt(number)
+    return math.sqrt(number)
     pass
 
 def circumference(radius):
-    # TODO: return 2 * math.pi * radius
+    return 2 * math.pi * radius
     pass
 
 
