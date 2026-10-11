@@ -14,11 +14,11 @@
 import random
 
 def roll_dice():
-    # TODO: return random.randint(1, 6)
+    return random.randint(1, 6)
     pass
 
 def pick_snack(snacks):
-    # TODO: return random.choice(snacks)
+    return random.choice(snacks)
     pass
 
 
