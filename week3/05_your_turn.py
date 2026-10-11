@@ -17,9 +17,8 @@ import os
 
 def read_saved_score(filename):
     try:
-        # TODO:
-        # with open(filename, "r") as file:
-        #     return file.read()
+      with open(filename, "r") as file:
+        return file.read()
         pass
     except FileNotFoundError:
         return None
