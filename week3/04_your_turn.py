@@ -22,7 +22,7 @@ class ScoreBook:
 
     def add_score(self, value):
         if value <= 0:
-            # TODO: raise InvalidScoreError("Score must be a positive number.")
+            raise InvalidScoreError("Score must be a positive number.")
             pass
         self.scores.append(value)
 
