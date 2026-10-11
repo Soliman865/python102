@@ -14,7 +14,10 @@
 
 def get_item(items, index):
     try:
-        # TODO: return the item at this index
+        return items[index]
+    except IndexError:
+        print("That spot is not in the list.")
+        return None
         pass
     except IndexError:
         return None
@@ -43,3 +46,4 @@ else:
     print("Index 1 should be eggs. Yours is", eggs)
     print("Index 10 should be None. Yours is", missing)
     print("Inside try, return items[index].")
+  
