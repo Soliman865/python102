@@ -12,12 +12,13 @@
 #
 # Only edit the return line. Leave the CHECK section alone.
 
+
 import datetime
 
 def format_birthday():
     birthday = datetime.date(2014, 3, 15)
-    # TODO: return birthday.strftime("%Y-%m-%d")
-    return ""
+    return birthday.strftime("%Y-%m-%d")
+    
 
 
 text = format_birthday()
