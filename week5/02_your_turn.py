@@ -18,7 +18,7 @@ class Player:
 
     def add_score(self, value):
         if value <= 0:
-            # TODO: raise ValueError("Score must be a positive number.")
+            raise ValueError("Score must be a positive number.")
             pass
         self.scores.append(value)
 
