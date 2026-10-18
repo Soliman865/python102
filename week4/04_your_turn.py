@@ -17,14 +17,14 @@ import os
 
 def save_player(path, player):
     # TODO:
-    # with open(path, "w") as file:
-    #     json.dump(player, file)
+    with open(path, "w") as file:
+        json.dump(player, file)
     pass
 
 def load_player(path):
     # TODO:
-    # with open(path, "r") as file:
-    #     return json.load(file)
+    with open(path, "r") as file:
+        return json.load(file)
     pass
 
 
