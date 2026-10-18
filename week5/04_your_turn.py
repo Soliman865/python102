@@ -26,8 +26,8 @@ def save_all(path, players):
     for player in players.values():
         data.append({"name": player.name, "scores": player.scores})
     # TODO:
-    # with open(path, "w") as file:
-    #     json.dump(data, file, indent=2)
+    with open(path, "w") as file:
+        json.dump(data, file, indent=2)
     pass
 
 def load_all(path):
