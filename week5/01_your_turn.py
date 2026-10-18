@@ -21,7 +21,7 @@ class Player:
 
     def best_score(self):
         # TODO: if the list is empty, return 0
-        # Otherwise return max(self.scores)
+        Otherwise return max(self.scores)
         pass
 
 
