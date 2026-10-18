@@ -12,7 +12,7 @@
 #
 # Only edit add_score. Leave the CHECK section alone.
 
-import datetime
+atetime
 
 class Player:
     def __init__(self, name):
@@ -20,10 +20,10 @@ class Player:
         self.scores = []
 
     def add_score(self, value):
-        # TODO:
-        # date = datetime.datetime.now().strftime("%Y-%m-%d %H:%M")
-        # entry = {"value": value, "date": date}
-        # self.scores.append(entry)
+        
+        date = datetime.datetime.now().strftime("%Y-%m-%d %H:%M")
+        entry = {"value": value, "date": date}
+        self.scores.append(entry)
         pass
 
     def best_score(self):
