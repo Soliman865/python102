@@ -21,8 +21,8 @@ def load_score(path):
     if not os.path.exists(path):
         return None
     # TODO:
-    # with open(path, "r") as file:
-    #     return json.load(file)
+    with open(path, "r") as file:
+      return json.load(file)
     pass
 
 
